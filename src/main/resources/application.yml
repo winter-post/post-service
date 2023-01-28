@@ -20,6 +20,18 @@ spring:
   application:
     name: user-service
 
+feign:
+  url:
+    prefix: http://localhost:8000
+  client:
+    config:
+      user-service-client:
+        connect-timeout: 1000
+        read-timeout: 3000
+        logger-level: HEADERS
+  user-service:
+    url: /user-service
+
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
