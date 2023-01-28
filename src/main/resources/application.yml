@@ -17,15 +17,18 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
   application:
-    name: user-service
+    name: post-service
 
 feign:
   url:
     prefix: http://localhost:8000
   client:
     config:
-      user-service-client:
+      user-service:
         connect-timeout: 1000
         read-timeout: 3000
         logger-level: HEADERS
